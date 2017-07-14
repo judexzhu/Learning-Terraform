@@ -1,12 +1,14 @@
 # Learning-Terraform
 
-## Introduction
+---
+
+#### Introduction
 
 1. What is Terraform
 2. Installing
 3. First steps
 
-## Terraform basics
+#### Terraform basics
 
 1. Variables
 2. Provisioning on Linux
@@ -18,7 +20,7 @@
 8. Modules
 9. Other providers
 
-## Terraform on AWS
+#### Terraform on AWS
 
 1. VPC
 2. EC2 instances and EBS
@@ -30,12 +32,12 @@
 8. IAM Roles
 9. Autoscaling, Load Balancers
 
-## Terraform with Packer
+#### Terraform with Packer
 
 1. Building AMIs
 2. A Jenkins workflow
 
-## Docker
+#### Docker
 
 1. introduction
 2. Docker Repository
@@ -44,15 +46,13 @@
 5. Terraform with ECS
 6. A Jenkins workflow with Terraform, ECR, ECS
 
-# Goal
+#### Goal
 
 * ###### To be able to understand , user and apply terraform
 * ###### To know when to use different features
 * ###### To use terraform with AWS
 * ###### To use terraform with Packer to create custom iamges
 * ###### To be able to apply DevOps techniques using terraform
-
-
 
 
 
