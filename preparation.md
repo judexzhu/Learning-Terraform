@@ -1,4 +1,4 @@
-## Preparation 
+## Preparation
 
 #### Github repository
 
@@ -44,12 +44,13 @@ The course is explained using MacOS/Linux. If you rather want to use putty, use 
 
 #### Reference Documentation
 
-* Download URL:
+* Download URL
 
-        [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+       [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
 
-* AWS Resources:
+* AWS Resources:  
   [https://www.terraform.io/docs/providers/aws/](https://www.terraform.io/docs/providers/aws/)
+
 * List of providers:
   [https://www.terraform.io/docs/providers/index.html](https://www.terraform.io/docs/providers/index.html)
 
