@@ -1,4 +1,4 @@
-# Fish Steps in Terraform - Create IAM User
+# First Steps in Terraform - Create IAM User
 
 ---
 
