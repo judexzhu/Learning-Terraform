@@ -1,4 +1,4 @@
-# Learning-Terraform
+# Learning-Terraform by Jude Zhu
 
 ---
 
