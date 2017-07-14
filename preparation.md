@@ -46,7 +46,7 @@ The course is explained using MacOS/Linux. If you rather want to use putty, use 
 
 * Download URL
 
-       [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+  [https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
 
 * AWS Resources:  
   [https://www.terraform.io/docs/providers/aws/](https://www.terraform.io/docs/providers/aws/)
