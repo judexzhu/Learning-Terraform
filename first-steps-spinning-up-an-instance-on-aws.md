@@ -6,7 +6,7 @@
 
 named "instance.tf"
 
-```
+```json
 provider "aws" {
   access_key = "ACCESS_KEY_HERE"
   secret_key = "SECRET_KEY_HERE"
@@ -59,7 +59,7 @@ Let 's modify our instance.tf file and insert our "Access key ID", "Secret acces
 
 #### terraform apply
 
-Double check your "instance.tf" file, and make sure everything is under the orders. Then under the same folder/directory, Let's run "`terrform apply`". 
+Double check your "instance.tf" file, and make sure everything is under the orders. Then under the same folder/directory, Let's run "`terrform apply`".
 
 And here is the output:
 
@@ -95,13 +95,13 @@ We will see there is no instance left, so the "terraform destroy" works well.![]
 
 #### terraform plan
 
-There is another Useful command called "`terraform plan`". It will look into your \*.tf files and show you what it plans to do without applying to your infrastructure. 
+There is another Useful command called "`terraform plan`". It will look into your \*.tf files and show you what it plans to do without applying to your infrastructure.
 
 ![](/images/fs-terraformplanoutput.png)
 
 If you use the "-out" argument like "terraform plan -out out.terraform" or any file you like, then the change would been made by the terraform will be saved into that file, let's have a try:
 
- ![](/images/fs-tfplanout.png)
+![](/images/fs-tfplanout.png)
 
 Then you can run "`terraform apply out.terraform`" to apply the only changes inside the "out.terraform" file.
 
@@ -123,8 +123,6 @@ Here is the step we make in the previous steps:
   * Then only apply those changes to the infrastructure by "`terraform apply filename`"
   * Afterwards the infrastructure can be destroyed by running "`terraform destroy`". 
   * Be very careful with "`terraform destroy`" command on a production environment!
-
-
 
 
 
