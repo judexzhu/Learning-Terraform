@@ -44,7 +44,7 @@ provider "aws" {
 }
 ```
 
-It contain the provider which obviously the "aws", the "access\__key", ""secret\__key" and the "region".
+It contain the provider which obviously the "aws", the "access\_\_key", ""secret\_\_key" and the "region".
 
 We are not going to fill them out the actual values, instead we replaced them with variables.
 
@@ -74,7 +74,7 @@ AWS_SECRET_KEY = ""
 AWS_REGION = ""
 ```
 
-It's empty here, but you need put your values inside the "terraform.tfvars" file to make your terraform works. 
+It's empty here, but you need put your values inside the "terraform.tfvars" file to make your terraform works.
 
 > Tips: If you are using a git repository to save the terraform configuration files, remember to put this file name into the `.gitignore`, so you wont push this file which containers your "AWS\_ACCESS\_KEY" and "AWS\_SECRET\_KEY" into the git repositories.
 >
@@ -162,7 +162,7 @@ ami ="${lookup(var.AMIS, var.AWS_REGION)}"
 
 It has two parameters, one is "var.AMIS" and the second is "var.AWS\_REGION".
 
-so it will first get the value of "var.AWS\_REGION", for example, let's say it would be "us-east-2", then it take the value "us-east-2" as the key into the variable "AMIS" and lookup for the value, which is "ami-ae90b6cb". Finally, it give the value it looked up to the "ami" 
+so it will first get the value of "var.AWS\_REGION", for example, let's say it would be "us-east-2", then it take the value "us-east-2" as the key into the variable "AMIS" and lookup for the value, which is "ami-ae90b6cb". Finally, it give the value it looked up to the "ami"
 
 ```json
 ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
@@ -174,9 +174,9 @@ to
 ami           = "ami-ae90b6cb"
 ```
 
-And don't forget the file where we put all the variables value inside,"terraform.tfvars" 
+And don't forget the file where we put all the variables value inside,"terraform.tfvars"
 
- terraform.tfvars
+terraform.tfvars
 
 ```json
 AWS_ACCESS_KEY = ""
