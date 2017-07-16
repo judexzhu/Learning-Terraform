@@ -32,7 +32,7 @@ vars.tf
 ```json
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
-Variable "AWS_REGION" {
+variable "AWS_REGION" {
   default = "us-east-2"
 }
 variable "AMIS" {
@@ -66,5 +66,107 @@ In this demo, you only need put "AWS\_ACCESS\_KEY" and "AWS\_SECRET\_KEY" variab
 */terraform.tfvars
 ```
 
+Let's run `terraform plan`and you will see the result like this:
 
+```
++ aws_instance.example
+    ami:                          "ami-ae90b6cb"
+    associate_public_ip_address:  "<computed>"
+    availability_zone:            "<computed>"
+    ebs_block_device.#:           "<computed>"
+    ephemeral_block_device.#:     "<computed>"
+    instance_state:               "<computed>"
+    instance_type:                "t2.micro"
+    ipv6_address_count:           "<computed>"
+    ipv6_addresses.#:             "<computed>"
+    key_name:                     "<computed>"
+    network_interface.#:          "<computed>"
+    network_interface_id:         "<computed>"
+    placement_group:              "<computed>"
+    primary_network_interface_id: "<computed>"
+    private_dns:                  "<computed>"
+    private_ip:                   "<computed>"
+    public_dns:                   "<computed>"
+    public_ip:                    "<computed>"
+    root_block_device.#:          "<computed>"
+    security_groups.#:            "<computed>"
+    source_dest_check:            "true"
+    subnet_id:                    "<computed>"
+    tenancy:                      "<computed>"
+    volume_tags.%:                "<computed>"
+    vpc_security_group_ids.#:     "<computed>"
+
+
+Plan: 1 to add, 0 to change, 0 to destroy
+```
+
+That means we have successfully use our variable with separate tf files and "terraform.tfvars" which containers the variable values to create the same infrastructure as our "First Steps".
+
+Let's run terraform apply :
+
+```
+aws_instance.example: Creating...
+  ami:                          "" => "ami-ae90b6cb"
+  associate_public_ip_address:  "" => "<computed>"
+  availability_zone:            "" => "<computed>"
+  ebs_block_device.#:           "" => "<computed>"
+  ephemeral_block_device.#:     "" => "<computed>"
+  instance_state:               "" => "<computed>"
+  instance_type:                "" => "t2.micro"
+  ipv6_address_count:           "" => "<computed>"
+  ipv6_addresses.#:             "" => "<computed>"
+  key_name:                     "" => "<computed>"
+  network_interface.#:          "" => "<computed>"
+  network_interface_id:         "" => "<computed>"
+  placement_group:              "" => "<computed>"
+  primary_network_interface_id: "" => "<computed>"
+  private_dns:                  "" => "<computed>"
+  private_ip:                   "" => "<computed>"
+  public_dns:                   "" => "<computed>"
+  public_ip:                    "" => "<computed>"
+  root_block_device.#:          "" => "<computed>"
+  security_groups.#:            "" => "<computed>"
+  source_dest_check:            "" => "true"
+  subnet_id:                    "" => "<computed>"
+  tenancy:                      "" => "<computed>"
+  volume_tags.%:                "" => "<computed>"
+  vpc_security_group_ids.#:     "" => "<computed>"
+aws_instance.example: Still creating... (10s elapsed)
+aws_instance.example: Still creating... (20s elapsed)
+aws_instance.example: Still creating... (30s elapsed)
+aws_instance.example: Creation complete (ID: i-00154990593b96c58)
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
+
+Let's go to the AWS EC2 service to check.![](/images/vardemo-instancerunning.png)
+
+An instance is running now ,and every information matches what we describe in the multiple tf files.
+
+Then as usually , let's run "terraform destroy" to avoid fees.
+
+```
+Do you really want to destroy?
+  Terraform will delete all your managed infrastructure.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_instance.example: Refreshing state... (ID: i-00154990593b96c58)
+aws_instance.example: Destroying... (ID: i-00154990593b96c58)
+aws_instance.example: Still destroying... (ID: i-00154990593b96c58, 10s elapsed)
+aws_instance.example: Still destroying... (ID: i-00154990593b96c58, 20s elapsed)
+aws_instance.example: Still destroying... (ID: i-00154990593b96c58, 30s elapsed)
+aws_instance.example: Still destroying... (ID: i-00154990593b96c58, 40s elapsed)
+aws_instance.example: Still destroying... (ID: i-00154990593b96c58, 50s elapsed)
+aws_instance.example: Destruction complete
+
+Destroy complete! Resources: 1 destroyed.
+```
+
+Let's try it again, but this time let's see  what if we remove the "terraform.tfvars"  file. That mean we will define the variables without give them the values.
+
+![](/images/vardemo-wovalues.png)
+
+It will prompt those variable without values and you can put the values behind it. You see, I've put some wrong values, so it will got an error and stop without doing anything.
 
