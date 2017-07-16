@@ -1,2 +1,2 @@
-![](/images/LearningTerraformBookCover.png)
+![](/images/LearningTerraformBookCover.png =1000x)
 
