@@ -61,7 +61,7 @@ apt-get update
 apt-get -y install nginx
 ```
 
-It's just a simple bash shell script, which will run "apt-get update" first, then install the nginx.
+It's just a simple bash shell script, which will run "apt-get update" first, then install the nginx with sudo.
 
 provider.tf
 
@@ -106,9 +106,9 @@ variable "INSTANCE_USERNAME" {
 
 Here in the "vars.tf". We added 3 more variables.
 
-1. "PATH\_TO\_PRIVATE\_KEY", and it's value is "mykey". That means under the same folder with these tf files. we need a ssh private key with the file name "mykey".
-2. "PATH\_TO\_PUBLIC\_KEY", and it's value is "mykey.pub". That means under the same folder with these tf files. we need a ssh public key with the file name "mykey.pub".
-3. "INSTANCE\_USERNAME", and it's value is "ubuntu". For we're going to spin up an Ubuntu host, as we talked before, the default user of the Ubuntu server is "ubuntu".
+1. "**PATH\_TO\_PRIVATE\_KEY**", and it's value is "mykey". That means under the same folder with these tf files. we need a ssh private key with the file name "mykey".
+2. "**PATH\_TO\_PUBLIC\_KEY**", and it's value is "mykey.pub". That means under the same folder with these tf files. we need a ssh public key with the file name "mykey.pub".
+3. "**INSTANCE\_USERNAME**", and it's value is "ubuntu". For we're going to spin up an Ubuntu host, as we talked before, the default user of the Ubuntu server is "ubuntu".
 
 Don't forget to create the "terraform.tfvars" and put your "AWS\_ACCESS\_KEY" and "AWS\_SECRET\_KEY"  inside it.
 
@@ -117,6 +117,14 @@ Don't forget to create the "terraform.tfvars" and put your "AWS\_ACCESS\_KEY" an
 Next, let's generate the ssh key pair.
 
 #### Generate SSH Key pair
+
+If you are working on Linux system or Mac, generate the SSHkey pair is easy.
+
+Just run 
+
+```bash
+ssh-keygen -f mykey
+```
 
 
 
