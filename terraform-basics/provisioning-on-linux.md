@@ -160,7 +160,7 @@ If you're working with Windows system, like me using the Windows 10 now, so you 
 
 You can download the putty and puttygen tools from here. [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
-Here is what it looks like. Click "Generate". 
+Here is what it looks like. Click "Generate".
 
 ![](/images/ps-linuxputtygen.png)
 
@@ -168,7 +168,7 @@ Then it will ask to move the mouse in the blank area to generate some randomness
 
 ![](/images/ps-linuxmovemoushegenkey.png)
 
-When finished, don't forget to save your key pair to the folder holds your terraform files you're going to use 
+When finished, don't forget to save your key pair to the folder holds your terraform files you're going to use
 
 Make sure you follow the below steps
 
@@ -182,7 +182,7 @@ Please proceed as follows:
 ssh-rsa AAAAB3NzaC1yc2E...ANqTeH4scPYaQ== rsa-key-20170716
 ```
 
-* Choose **Conversions **▸**Export OpenSSH key** to export your private key in the OpenSSH format. Choose `mykey` as the filename and save it the project folder. It should be multiple lines that that looks like this:
+* Choose **Conversions **▸**Export OpenSSH key** to export your private key in the OpenSSH format. Choose `mykey` as the filename and save it the project folder. It should be multiple lines that that looks like this:
 
 ```
 -----BEGIN RSA PRIVATE KEY-----
@@ -210,7 +210,7 @@ As you can see, my public ip address is "61.221.24.39"
 
 ![](/images/ps-whatismyiporg.png)
 
-Then , let's login the AWS web console, and in the "Services", let's find the "**VPC**" service under the "**Networking & Content Delivery** ". 
+Then , let's login the AWS web console, and in the "Services", let's find the "**VPC**" service under the "**Networking & Content Delivery** ".
 
 ![](/images/ps-linuxvpc.png)
 
@@ -325,11 +325,15 @@ for the output is a little bit long. I'm not going to show you all of them.
 
 That's mean we successfully used terraform to provision software on the AWS linux host.
 
-If you add another Inbound Rule in the "default" security group, like below to allow the **HTTP\(80\)** traffic. 
+If you add another Inbound Rule in the "default" security group, like below to allow the **HTTP\(80\)** traffic.
 
 ![](/images/ps-sgallowhttp80.png)
 
 You can see the nginx default web page by putting the host public IP in the browser .
 
 ![](/images/ps-nginxdefaultpage.png)
+
+> Note: Don't forget to run "terraform destroy" after you finished your experiment .
+
+
 
