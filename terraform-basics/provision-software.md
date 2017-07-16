@@ -92,7 +92,7 @@ resource "aws_instance" "example" {
 }
 ```
 
-Let me explain it for you 
+Let me explain it for you
 
 ![](/images/ps-sshkeypairexplain.png)
 
@@ -101,10 +101,33 @@ Let me explain it for you
 1. Here we declare a new resource - "aws\_key\_pair"  and we identified it as "mykey".
 2. Here we defined the resource "mykey"'s  key\_name value also as "mykey".
 3. Then we specified a public key for it as "ssh-rsa my-public-key" \(You need replace the "my-public-key" with the real public key content.\)
-4. Here we let the instance to know which aws\_key\_pair resource it should use by claiming the **key\_name = "${aws\_key\_pair.mykey.key\_name}"** . That means find a resource aws\_key_pair identified by "mykey" and get the value of the "key_name".
+4. Here we let the instance to know which aws\_key\_pair resource it should use by claiming the **key\_name = "${aws\_key\_pair.mykey.key\_name}"** . That means find a resource aws\_key\_pair identified by "mykey" and get the value of the "key\_name".
 5. Here is the file path point to the private key you are going to use to login in to the instance.
 
 #### remote exec
+
+After you upload a script, you'll want to execute it.
+
+ You can execute a script using remote-exec, let's see a example:
+
+```json
+resource "aws_instance" "example" {
+  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"
+  key_name = "${aws_key_pair.mykey.key_name}"
+
+  provisioner "file" {
+    source = "script.sh"
+    destination = "/opt/script.sh"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /opt/script.sh",
+      "/opt/script.sh arguments"
+    ]
+  }
+}
+```
 
 
 
