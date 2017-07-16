@@ -108,7 +108,7 @@ Let me explain it for you
 
 After you upload a script, you'll want to execute it.
 
- You can execute a script using remote-exec, let's see a example:
+You can execute a script using remote-exec, let's see a example:
 
 ```json
 resource "aws_instance" "example" {
@@ -129,5 +129,7 @@ resource "aws_instance" "example" {
 }
 ```
 
+SO after the provisoner "file" {}, we add another provisoner "remote-exec". Inside of it, we have a key called "inline", then it has two values inside a list. The first one is to make the "script.sh" executable, and the second one is to execute the "script.sh" with some "arguments".
 
+Let us see how it really works in the next two demos, one is on Linux host, and another is on the Windows host.
 
