@@ -11,4 +11,5 @@
 * [Terraform Basics](terraform-basics.md)
   * [Variables](terraform-basics/variables.md)
   * [Variables-Demo](terraform-basics/variables-demo.md)
+  * [Provision Software](terraform-basics/provision-software.md)
 
