@@ -1,2 +1,1 @@
-![](/images/LearningTerraformBookCover.png =1000x)
-
+<img src="/images/LearningTerraformBookCover.png" width="1000">
