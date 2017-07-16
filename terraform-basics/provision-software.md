@@ -32,11 +32,13 @@ resource "aws_instance" "example" {
 }
 ```
 
-If you want to upload a file into the instance, you have to add a **provisioner "file" {} **inside the "aws_instance" resource. **Source = "app.conf"** _that means we have a file "app.conf" next to our tf files and we want to upload this file to the aws\_instance. **destination = "/etc/myapp.conf"** is the destination where we want to put the file inside the instance.
+If you want to upload a file into the instance, you have to add a **provisioner "file" {} **inside the "aws\_instance" resource. **Source = "app.conf"** \_that means we have a file "app.conf" next to our tf files and we want to upload this file to the aws\_instance. **destination = "/etc/myapp.conf"** is the destination where we want to put the file inside the instance.
 
-**File Uploads** can be used in conjunction with **remote-exec** to execute a script. That means you can use "File uploads" to upload a script into the instances, then use the "remote-exec" to execute the script. 
+**File Uploads** can be used in conjunction with **remote-exec** to execute a script. That means you can use "File uploads" to upload a script into the instances, then use the "remote-exec" to execute the script.
 
 The provisioner may user **SSH **\(for Linux\) or **WinRM **\(for Windows\).
+
+#### Connection
 
 So to use SSH, you can use "**connection**":
 
@@ -57,6 +59,16 @@ resource "aws_instance" "example" {
   }
 }
 ```
+
+In this example, terraform will use ssh to connect to the instance by using "user" & "password" after spinning up the Ubuntu instance. 
+
+> Tips: The default type of connection is "SSH". If you want to use the other types, you have to define it in the "connection {}".
+
+When spinning up instance on AWS, **ec2-user** is the default user for Amazon Linux and **ubuntu **for Ubuntu Linux.
+
+Typically on AWS, you'll use SSH keypairs:
+
+Here is a example:
 
 
 
