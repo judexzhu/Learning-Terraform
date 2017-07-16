@@ -127,7 +127,7 @@ vars.tf
 ```json
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
-Variable "AWS_REFION" {
+Variable "AWS_REGION" {
   default = "us-east-2"
 }
 variable "AMIS" {

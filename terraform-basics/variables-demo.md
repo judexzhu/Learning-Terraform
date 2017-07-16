@@ -32,7 +32,7 @@ vars.tf
 ```json
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
-Variable "AWS_REFION" {
+Variable "AWS_REGION" {
   default = "us-east-2"
 }
 variable "AMIS" {
@@ -44,6 +44,26 @@ variable "AMIS" {
     us-west-2 = "ami-7646530f"
   }
 }
+```
+
+Current now , it will look like below
+
+![](/images/vardeminfra1.png)
+
+We do not have the value of the variables yet, so let's create the "terraform.tfvars" file and put our values inside it.
+
+In this demo, you only need put "AWS\_ACCESS\_KEY" and "AWS\_SECRET\_KEY" variable values inside it, for the variable "AWS\_REGION" has a default values, and the variable "AMIS" can look up the map with the value of "AWS\_REGION" and get its  value by itself.
+
+![](/images/vardemo-tfvarsfile.png)
+
+> Attention: This is the file which you don't want to put it on your git repository, for it contains the sensitive information, most important, the access\_\_key and secret\_\_key. Anyone have these key pair can use them to create, build or destroy your aws infrastructure. Please be more careful with it.
+>
+> Typically, you want to put a ".gitignore" file inside your repository, and put "terraform.tfvars" inside it, depends on my repository structure, here is how it looks like.\(We will put more files in the ".gitignore" later. \)
+
+.gitignore
+
+```json
+*/terraform.tfvars
 ```
 
 
