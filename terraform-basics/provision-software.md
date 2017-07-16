@@ -60,7 +60,7 @@ resource "aws_instance" "example" {
 }
 ```
 
-In this example, terraform will use ssh to connect to the instance by using "user" & "password" after spinning up the Ubuntu instance. 
+In this example, terraform will use ssh to connect to the instance by using "user" & "password" after spinning up the Ubuntu instance.
 
 > Tips: The default type of connection is "SSH". If you want to use the other types, you have to define it in the "connection {}".
 
@@ -70,7 +70,41 @@ Typically on AWS, you'll use SSH keypairs:
 
 Here is a example:
 
+```json
+resource "aws_key_pair" "mykey" {
+  key_name = "mykey"
+  public_key = "ssh-rsa my-public-key"
+}
 
+resource "aws_instance" "example" {
+  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"
+  key_name = "${aws_key_pair.mykey.key_name}"
+
+  provisioner "file" {
+    source = "script.sh"
+    destination = "/opt/script.sh"
+  }
+  connection {
+    user = "${var.INSTANCE_USERNAME}"
+    private_key = "${file("${var.PATH_TO_PRIVATE_KEY}")}"
+  }
+}
+```
+
+Let me explain it for you 
+
+![](/images/ps-sshkeypairexplain.png)
+
+> Hint: Key pair mean you need to have a public key and also a private key.
+
+1. Here we declare a new resource - "aws\_key\_pair"  and we identified it as "mykey".
+2. Here we defined the resource "mykey"'s  key\_name value also as "mykey".
+3. Then we specified a public key for it as "ssh-rsa my-public-key" \(You need replace the "my-public-key" with the real public key content.\)
+4. Here we let the instance to know which aws\_key\_pair resource it should use by claiming the **key\_name = "${aws\_key\_pair.mykey.key\_name}"** . That means find a resource aws\_key_pair identified by "mykey" and get the value of the "key_name".
+5. Here is the file path point to the private key you are going to use to login in to the instance.
+
+#### remote exec
 
 
 
