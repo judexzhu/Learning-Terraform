@@ -8,4 +8,5 @@
   * [First Steps - Spinning up an instance](first-steps-spinning-up-an-instance-on-aws.md)
 * [Terraform Basics](terraform-basics.md)
   * [Variables](terraform-basics/variables.md)
+  * [Variables-Demo](terraform-basics/variables-demo.md)
 

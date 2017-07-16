@@ -184,5 +184,5 @@ AWS_SECRET_KEY = ""
 AWS_REGION = ""
 ```
 
-
+Let's make some demo in the next chapter.
 
