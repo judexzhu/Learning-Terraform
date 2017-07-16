@@ -2,6 +2,7 @@
 
 * [Book Cover](book-cover.md)
 * [Introduction](README.md)
+* [Intro](intro.md)
   * [What is Terraform](what-is-terraform.md)
   * [Preparation](preparation.md)
   * [Installing Terraform](installing-terraform.md)

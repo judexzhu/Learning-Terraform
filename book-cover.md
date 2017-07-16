@@ -1,2 +1,2 @@
-![](/assets/LearningTerraformBookCover.png)
+![](/images/LearningTerraformBookCover.png)
 
