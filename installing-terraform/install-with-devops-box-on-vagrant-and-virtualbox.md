@@ -30,8 +30,6 @@ Go to [https://www.vagrantup.com/](https://www.vagrantup.com/), download and ins
 
 #### Install Git
 
-
-
 Go to [https://git-scm.com/downloads](https://git-scm.com/downloads), download and install the Windows Version.
 
 > Note: All install steps apply the default option.
@@ -40,7 +38,7 @@ Go to [https://git-scm.com/downloads](https://git-scm.com/downloads), download a
 
 #### Git Clone Vagrant file
 
-After installing the VirtualBox, Vagrant and git. 
+After installing the VirtualBox, Vagrant and git.
 
 Open a Command Prompt by pressing "WIN+R" and run "cmd". Let's say, I want to clone the folder and build the vm under the "C:\".
 
@@ -54,13 +52,13 @@ Here is what it looks like:![](/images/installdevboxgitclone)
 
 #### Vagrant Up
 
-Bring the devops-box vm up by simply running 
+Bring the devops-box vm up by simply running
 
 ```bash
 vagrant up
 ```
 
-It will take some time. After finish, run below command to check the ssh login information 
+It will take some time. After finish, run below command to check the ssh login information
 
 ```bash
 vagrant ssh-config
@@ -104,6 +102,4 @@ Here is some useful command when using vagrant, wish they will be helpful.
 Typing \`vagrant\` from the command line will display a list of all available commands.
 
 Be sure that you are in the same directory as the Vagrantfile when running these commands!
-
-
 
